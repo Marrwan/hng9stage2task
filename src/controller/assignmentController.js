@@ -16,12 +16,13 @@ class AssignmentController {
       const validations = [
         check("operation_type")
           .notEmpty()
+          .bail()
           .withMessage("operation_type is required")
           .isString()
           .withMessage("operation_type must be a string")
           .matches(/(add|multiply|subtract|x|\+|\-|times|minus)/)
           .withMessage(
-            'must contain either "x " for multiplication or - or + to perform operation'
+            'operation_type mismatched'
           ),
         check("x")
           .notEmpty()
