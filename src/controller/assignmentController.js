@@ -21,7 +21,9 @@ class AssignmentController {
           .isString()
           .withMessage("operation_type must be a string")
           .matches(/(add|multiply|subtract|x|\+|\-|times|minus)/)
-          .withMessage("operation_type mismatched"),
+          .withMessage(
+            'operation_type mismatched'
+          ),
         check("x")
           .notEmpty()
           .withMessage("x field is required")
@@ -41,49 +43,40 @@ class AssignmentController {
       const errors = validationResult(req);
 
       if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+       return res.status(400).json({ errors: errors.array() });
       }
 
-      let result = null;
+      let result = 0;
       let x = Number(req.body.x);
       let y = Number(req.body.y);
-      console.log(req.body);
-      /** 
-      @type {string} operationType
-     */
-      let operation_type = null;
-      let operationType = req.body.operation_type.toLowerCase();
+      let operation_type = "";
+      let operationType = req.body.operation_type;
 
-      if (operationType.includes("add") || operationType.includes("+")) {
+      if (
+        operationType.includes("add") ||
+        operationType.includes("addition") ||
+        operationType.includes("+")
+      ) {
+        result += x + y;
         operation_type = "addition";
-        result = x + y;
       }
-      if (operationType.includes("sub") || operationType.includes("-")) {
+      if (
+        operationType.includes("multiply") ||
+        operationType.includes("x") ||
+        operationType.includes("*") ||
+        operationType.includes("multiplication") ||
+        operationType.includes("times")
+      ) {
+        result = x * y;
+        operation_type = "multiplication";
+      }
+      if (
+        operationType.includes("subtraction") ||
+        operationType.includes("minus") ||
+        operationType.includes("-")
+      ) {
+        result += x - y;
         operation_type = "subtraction";
-        result = x - y;
-      }
-
-      if (operationType.includes("mul") || operationType.includes("*")) {
-        operation_type = "multiplication";
-        result = x * y;
-      }
-      if (operationType.includes("sum")) {
-        operation_type = "addition";
-        result = x + y;
-      }
-
-      if (operationType.includes("pro")) {
-        operation_type = "multiplication";
-        result = x * y;
-      }
-      if (operationType.includes("times")) {
-        operation_type = "multiplication";
-        result = x * y;
-      }
-
-      if (operationType.includes("diff")) {
-        operation_type = "subtraction";
-        result = x - y;
       }
       // submitted late because of school test forgive me
       return res.status(200).json({
