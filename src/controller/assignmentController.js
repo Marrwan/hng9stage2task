@@ -78,7 +78,7 @@ class AssignmentController {
         operation_type += "SUBTRACTION";
       }
       // submitted late because of school test forgive me
-      return res.status(201).json({
+      return res.status(200).json({
         slackUserName: "hussaynabdsamad07",
         result,
         operation_type: operation_type,
