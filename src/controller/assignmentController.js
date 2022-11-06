@@ -8,7 +8,7 @@ class AssignmentController {
       age: 22,
       bio: "I am a software engineer with about 4 years of experience in web development as a full-stack developer and about a year of mobile development. My strongest skills are in Javascript, Nodejs, Laravel, MySQL, MongoDB, and React. I am good at connecting a feature with business value and the importance of user experience.",
     };
-    res.status(200).json(obj);
+    res.status(200).send(obj);
   }
 
   async operation(req, res) {
@@ -49,13 +49,13 @@ class AssignmentController {
       }
 
       // submitted late because of school test forgive me
-      return res.status(200).json({
+      return res.status(200).send({
         slackUsername: "Abuabdirrahman",
         result,
         operation_type: operation_type,
       });
     } catch (error) {
-      return res.status(400).json({
+      return res.status(400).send({
         status: "failed",
         message: error.message,
       });
