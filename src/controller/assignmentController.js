@@ -58,7 +58,7 @@ class AssignmentController {
         operationType.includes("+")
       ) {
         result += x + y;
-        operation_type = operationType;
+        operation_type = "addition";
       }
       if (
         operationType.includes("multiply") ||
@@ -68,7 +68,7 @@ class AssignmentController {
         operationType.includes("times")
       ) {
         result += x * y;
-        operation_type = operationType;
+        operation_type = "multiplication";
       }
       if (
         operationType.includes("subtraction") ||
@@ -76,7 +76,7 @@ class AssignmentController {
         operationType.includes("-")
       ) {
         result += x - y;
-        operation_type = operationType
+        operation_type = "subtraction";
       }
       // submitted late because of school test forgive me
       return res.status(200).json({
