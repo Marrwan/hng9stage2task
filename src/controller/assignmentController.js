@@ -3,10 +3,10 @@ const { check, validationResult } = require("express-validator");
 class AssignmentController {
   index(req, res) {
     const obj = {
-      slackUsername: "hussaynabdsamad07",
+      slackUsername: "Abuabdirrahman",
       backend: true,
       age: 20,
-      bio: "I am Hussayn AbdulSamad, a backend developer with experience working with node and Laravel. I am a self motivated problem solver, with enthusiasm towards learning, I hope to go far in my HNG journey",
+      bio: "I am a software engineer with about 4 years of experience in web development as a full-stack developer and about a year of mobile development. My strongest skills are in Javascript, Nodejs, Laravel, MySQL, MongoDB, and React. I am good at connecting a feature with business value and the importance of user experience.",
     };
     res.status(200).json(obj);
   }
@@ -50,7 +50,7 @@ class AssignmentController {
 
       // submitted late because of school test forgive me
       return res.status(200).json({
-        slackUsername: "hussaynabdsamad07",
+        slackUsername: "Abuabdirrahman",
         result,
         operation_type: operation_type,
       });
