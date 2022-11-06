@@ -5,7 +5,7 @@ class AssignmentController {
     const obj = {
       slackUsername: "Abuabdirrahman",
       backend: true,
-      age: 20,
+      age: 22,
       bio: "I am a software engineer with about 4 years of experience in web development as a full-stack developer and about a year of mobile development. My strongest skills are in Javascript, Nodejs, Laravel, MySQL, MongoDB, and React. I am good at connecting a feature with business value and the importance of user experience.",
     };
     res.status(200).json(obj);
