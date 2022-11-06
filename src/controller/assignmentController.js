@@ -17,7 +17,8 @@ class AssignmentController {
       let x = Number(req.body.x);
       let y = Number(req.body.y);
       let operation_type = null;
-      if(typeof req.body.operation_type !== "string") throw new Error("Operation type must be a string");
+      if (typeof req.body.operation_type !== "string")
+        throw new Error("Operation type must be a string");
       let operationType = req.body.operation_type.toLowerCase();
 
       console.log(req.body);
@@ -49,7 +50,7 @@ class AssignmentController {
 
       // submitted late because of school test forgive me
       return res.status(200).json({
-        slackUserName: "hussaynabdsamad07",
+        slackUsername: "hussaynabdsamad07",
         result,
         operation_type: operation_type,
       });
